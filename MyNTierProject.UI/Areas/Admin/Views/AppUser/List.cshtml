@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+@model List<MyTierProject.Model.Option.AppUser>
+
+
+<h2>List of AppUsers</h2>
+<div class="col-md-12">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Kullanıcı Adı</th>
+                <th>Şifre</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Adres</th>
+                <th>Telefon No</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Fotoğraf</th>
+                <th colspan="2">Undate / Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Password</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Address</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Email</td>
+                    <td>@item.Role</td>
+                    <td><img src="@item.XSmallUserImage" /></td>
+                    <td>
+                        <a href="/Admin/AppUser/Update/@item.ID">Güncelle</a>
+                        /
+                        <a href="/Admin/AppUser/Delete/@item.ID">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
